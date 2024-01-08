@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+<style>
+	
+
+.wholecontainer{
+    display: flex;
+    
+}
+.formsection{
+    width: 50%;
+    padding-left: 8%;
+    border: 0px;
+}
+form>p{
+    font-size: 20px;
+}
+form>h2{
+    font-size: 40px;
+}
+form{
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+}
+#Countryselect{
+    width: 25%;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+.sidebysideinput1{
+    display: flex;
+    /* border: 2px solid red; */
+}
+#firstname{
+    margin-right: 20px;
+    width: 105%;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+#lastname{
+    margin-left: 50px;
+    width: 94%;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+#Addresssone{
+    width: 85%;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+.inputbox{
+    width: 85%;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+.inputbox2{
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+#Submitbtn{
+    text-align: center;
+    height: 50px;
+    width: 300px;
+    margin-top: 5%;
+    margin-left: 19%;
+    margin-bottom: 30px;
+    font-size: 20px;
+    background: rgba(75,86,102,255);
+    color: white;
+    border: rgba(75,86,102,255);
+}
+.rightdiv{
+    /* border: 2px solid blue; */
+    border-top: 0px;
+    border-bottom: 0px;
+    border-right:0px;
+    border-left: 2px solid grey;
+    padding-left: 20px;
+    }
+    .rightdiv>h2{
+        font-family: 'Work Sans', sans-serif;
+        font-size: 40px;
+    }
+    table{
+      border-collapse: collapse;
+      border-left: 0px solid black;
+      border-right: 0px solid black;
+      border-top: 0px;
+      border-collapse: separate;
+        border-spacing: 0 10px;
+        width: 500px;
+        height: 700px;
+        font-family: 'Work Sans', sans-serif;
+      }
+      tr.border-bottom td {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin: 0px 5px 0px 5px;
+        border-bottom: 2pt solid white;
+        border-top: 2px solid white;
+        border-left: 0px;
+        border-right: 0px;
+        border-right: 2px solid black;
+      }
+      .ending{
+        border-bottom: 1px solid white;
+      }
+      #Subtotal{
+        text-align: center;
+        
+      }
+      #tablebody>tr>td{
+        border-left: 0px;
+        border-right: 0px;
+      }
+    .statusbtn{
+    text-align: center;
+    height: 50px;
+    width: 300px;
+    margin-top: 20%;
+    margin-left: 25%;
+    margin-bottom: 30px;
+    font-size: 20px;
+    background: rgba(75,86,102,255);
+    color: white;
+    border: rgba(75,86,102,255);
+    display: none;
+      }
+      .visibletrackbtn{
+        display: block;
+      }
+    .popupform{
+        width: 250px;
+        background: #fff;
+        border-radius: 6px;
+        position: relative;
+        padding-left: 40px;
+        border: 2px solid red;
+        display: none;
+        margin-left: 25%;
+    }
+    .openPopup{
+        /* visibility: visible; */
+        width: 250px;
+        background: #fff;
+        border-radius: 6px;
+        position: relative;
+        /* text-align: center; */
+        padding-left: 40px;
+        border: 2px solid rgba(75,86,102,255);
+        /* visibility: hidden; */
+        display: block;
+        /* z-index: 20; */
+    }
+    #PopupPaybtn{
+    text-align: center;
+    height: 30px;
+    width: 100px;
+    margin-top: 5px;
+    margin-left: 19%;
+    margin-bottom: 20px;
+    font-size: 17px;
+    background: rgba(75,86,102,255);
+    color: white;
+    border: rgba(75,86,102,255);
+    }
+    #Payments{
+        margin-top: 20px;
+        text-align: center;
+        margin: 20px 30px 0px 140px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    
+    #selectpay{
+        margin: 0px 30px 20px 220px;
+        padding: 5px 30px 5px 30px;
+        font-size: 17px;
+        background: rgba(75,86,102,255);
+        color: white;
+        border: rgba(75,86,102,255);
+    }
+    .popupform2{
+        border: 2px solid rgba(75,86,102,255);
+        width: 200px;
+        margin: auto;
+        display: none;
+    }
+    .upiform{
+        display: block;
+        /* border: 2px solid red; */
+        width: 200px;
+        margin: auto;
+    }
+    .popupform2>h3{
+        padding-left: 15px;
+    }
+    .popupform2>input{
+        margin-left: 10px;
+    }
+    .PaymentSuccess{
+        width: 250px;
+        background: #fff;
+        border-radius: 6px;
+        top: 10;
+        margin: 0px;
+        padding-left: 40px;
+        margin-left: 25%;
+        border: 2px solid rgba(75,86,102,255);
+        position: relative;
+        /* z-index: 30; */
+        display: none;
+    }
+    .opensuccess{
+        display: block;
+    }
+    .currentstatus{
+        width: 520px;
+        margin-left: 20px;
+        text-align: center;
+        border: 2px solid red;
+        font-family: 'Work Sans', sans-serif;
+        display: none;
+    }
+    .statusdisplay{
+        display: block;
+    }
+    .currentstatus>img{
+        width: 100%;
+        filter: invert(100%);
+        padding-top: 20px;
+    }
+</style>
+
+</head>
+<body>
+
+
+<!-- Start Navbar -->
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/user/home">Femsha</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/user/home">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Men's
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'T-shirt')">T-shirt</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'Shirts')">Shirts</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'Jackets')">Jackets</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'Sweatshirts')">Sweatshirts</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'Trackpants')">Trackpants</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'Shoes')">Shoes</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'HatsCaps')">Hats & Caps</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Women's
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'T-shirt')">T-shirt</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'Shirts')">Shirts</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'Jackets')">Jackets</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'Sweatshirts')">Sweatshirts</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'Trackpants')">Trackpants</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'Shoes')">Shoes</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'HatsCaps')">Hats & Caps</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Kid's
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'T-shirt')">T-shirt</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'Shirts')">Shirts</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'Jackets')">Jackets</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'Sweatshirts')">Sweatshirts</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'Trackpants')">Trackpants</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'Shoes')">Shoes</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'HatsCaps')">Hats & Caps</a></li>
+          </ul>
+        </li>
+        
+        
+        
+        <th:block th:if="${user==NULL}">
+			
+		 
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signin">Login</a>
+        </li>
+        </th:block>
+        
+        <th:block th:if="${user!=NULL}">
+			
+			
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            User
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/user/profile">Profile</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </li>
+			
+		</th:block>
+        
+      </ul>
+      
+     
+      
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- End Navbar -->
+
+<div class="wholecontainer">
+    
+       <div class="formsection">
+    
+           <form action="javascript:void(0);" onsubmit="formsubmission(event)">
+               <h2>Shipping Address</h2>
+               <p>Country/Region</p>
+               <select id="Countryselect">
+       <option name="" id="">
+           India
+       </option>
+       <option name="" id="">
+           USA
+       </option>
+       <option name="" id="">
+           Russia
+       </option>
+       <option name="" id="">
+           Europe
+       </option>
+       <option name="" id="">
+           Japan
+       </option>
+               </select>
+       
+               <div class="sidebysideinput1">
+                   <div>
+                        <p>First Name</p>
+                       <input type="text" id="firstname">
+                   </div>
+                   <div>
+                        <p>Last Name</p>
+                       <input type="text" id="lastname">
+                   </div>
+               </div>
+       
+       <p>Street Address</p>
+       <input type="text" id="Addresssone">
+       <p>Address 2</p>
+       <input type="text" id="Add2" class="inputbox">
+       <p>City</p>
+       <input type="text" id="cityname" class="inputbox">
+       <p>Pin Code</p>
+       <input type="number" id="pinn" class="inputbox2">
+       <p>Mobile Number</p>
+       <input type="number" id="phone" class="inputbox2">
+       <br>
+       <br>
+ <input type="submit" id="Submitbtn">
+
+           </form>
+       </div>
+
+
+<div class="rightdiv">
+    <h2>Order Summary</h2>
+    <table  border="1 | 0">
+        
+        <tbody id="tablebody">
+          <tr class="ending">
+            <td>Country</td>
+            <td id="country"></td>
+          </tr>
+          <tr class="ending">
+            <td>Name</td>
+            <td id="named"></td>
+          </tr>
+          <tr class="ending">
+            <td>Address</td>
+            <td id="addresses"></td>
+          </tr>
+          <tr class="ending">
+            <td>City</td>
+            <td id="city"></td>
+          </tr>
+          <tr class="ending">
+            <td>PinCode</td>
+            <td id="pin"></td>
+          </tr>
+          <tr>
+            <td>Mobile</td>
+            <td id="mobile"></td>
+          </tr>
+            
+        </tbody>
+        <tfoot>
+            <tr class="border-bottom">
+                <td class="totaltxt">Total</td>
+                <td id="Subtotal"></td>
+            </tr>
+        </tfoot>
+    </table>
+    <select name="" id="Payments">
+      <option class="opt" value="">Select Payment option</option>
+      <option value="Card">Card</option>
+      <option value="UPI">UPI</option>
+      <option value="COD">Cash on Delivery</option>
+    </select>
+    <br><br>
+    <button onclick="openPopup()" id="selectpay">Pay</button>
+
+    <!-- Card -->
+
+    <div class="popupform">
+      <h3>Card Number</h3>
+      <input type="number">
+      <h3>Expiry Date</h3>
+      <input type="date">
+      <h3>Pin</h3>
+      <input type="number">
+      <br><br>
+      <button id="PopupPaybtn" onclick="closePopup()">Pay</button>
+    </div>
+
+    <!-- UPI -->
+
+    <div class="popupform2">
+      <h3>UPI ID</h3>
+      <input type="text">
+      <br><br>
+      <button id="PopupPaybtn" onclick="closePopup2()">Pay</button>
+    </div>
+
+    <!-- COD -->
+
+
+<!-- payment success -->
+
+    <div class="PaymentSuccess">
+      <h3>Payment success</h3>
+    
+      <h3>Congrats</h3>
+      
+      <br><br>
+      <button id="PopupPaybtn" onclick="closeSuccess()">OK</button>
+    </div>
+
+    
+  <button class="statusbtn" onclick="showstatus()">Track Status</button>
+   
+  <div class="currentstatus">
+    <img src="/accidental-discussion-3173/images/trackstatusimg.jpg" alt="">
+     <h4>Order Status - Disbursed from warehouse</h4>
+     <div class="ordersidebyside">
+       <h4>Arriving on</h4>
+       <h4 id="deliverydate"></h4>
+     </div>
+  </div>
+
+
+</div>
+
+   </div> 
+
+
+<footer
+          class="text-center text-lg-start text-dark"
+          style="background-color: #ECEFF1"
+          >
+   
+    <section
+             class="d-flex justify-content-between p-4 text-white"
+             style="background-color: #0d6efd"
+             >
+     
+      <div class="me-5">
+        <span>Get connected with us on social networks:</span>
+      </div>
+     
+
+      
+      <div>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      
+    </section>
+    
+
+    
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+       
+        <div class="row mt-3">
+         
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold">Femsha</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #0d6efd; height: 2px"
+                />
+            <p>
+              Femsha is your one-stop-shop for all your online shopping needs. We offer a wide range of products at competitive prices, with fast and reliable shipping.
+            </p>
+          </div>
+        
+
+         
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          
+            <h6 class="text-uppercase fw-bold">Products</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #0d6efd; height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-dark">T-Shirt</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Pants</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Jackets</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Hats & Caps</a>
+            </p>
+          </div>
+          
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold">Useful links</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #0d6efd; height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-dark">Your Account</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Become an Affiliate</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Shipping Rates</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Help</a>
+            </p>
+          </div>
+       
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          
+            <h6 class="text-uppercase fw-bold">Contact</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #0d6efd; height: 2px"
+                />
+            <p><i class="fas fa-home mr-3"></i> Kolkata , West Bengal , India</p>
+            <p><i class="fas fa-envelope mr-3"></i> shahidafridi77137@gmail.com</p>
+            <p><i class="fas fa-phone mr-3"></i>+91 7439860896</p>
+            <p><i class="fas fa-print mr-3"></i>+91 8987053262</p>
+          </div>
+         
+        </div>
+        
+      </div>
+    </section>
+    
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2023 Copyright:
+      <a class="text-dark" href="https://mdbootstrap.com/"
+         >Femsha.com</a>
+    </div>
+   
+  </footer>
+
+
+  		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+	document.querySelector("form").addEventListener("submit", formsubmission);
+	
+function formsubmission(event){	
+    event.preventDefault();
+		let totalprice = localStorage.getItem("amount")
+ console.log(totalprice)
+
+    
+let Ctry = document.querySelector("#Countryselect").value
+document.querySelector("#country").append(Ctry)
+
+let Ftnm = document.querySelector("#firstname").value
+// alert(Ftnm);
+
+let Ltnm = document.querySelector("#lastname").value
+let a = (Ftnm +" "+ Ltnm)
+console.log(a)
+
+document.querySelector("#named").append(a)
+
+let Addresse = document.querySelector("#Addresssone").value
+document.querySelector("#addresses").append(Addresse)
+
+let Cty = document.querySelector("#cityname").value
+document.querySelector("#city").append(Cty)
+
+let pnn = document.querySelector("#pinn").value
+document.querySelector("#pin").append(pnn)
+
+let Phne = document.querySelector("#phone").value
+document.querySelector("#mobile").append(Phne)
+
+document.querySelector("#Subtotal").append(totalprice)
+	}
+
+
+
+
+
+
+function openPopup(){
+    let p = document.querySelector("#Payments").value
+
+    if(p == "Card"){
+        
+        document.querySelector(".popupform").classList.add("openPopup")
+
+    }
+    if(p == "UPI"){
+        document.querySelector(".popupform2").classList.add("upiform")
+        document.querySelector(".popupform").classList.remove("openPopup")
+    }
+    if(p == "COD"){
+        document.querySelector(".statusbtn").classList.add("visibletrackbtn")
+    }
+
+}
+
+function closePopup(){
+    document.querySelector(".popupform").classList.remove("openPopup")
+    document.querySelector(".PaymentSuccess").classList.add("opensuccess")
+}
+
+function closeSuccess(){
+    document.querySelector(".PaymentSuccess").classList.remove("opensuccess")
+    document.querySelector(".statusbtn").classList.add("visibletrackbtn")
+}
+
+function closePopup2(){
+    document.querySelector(".popupform2").classList.remove("upiform")
+    document.querySelector(".PaymentSuccess").classList.add("opensuccess")
+}
+
+function showstatus(){
+    document.querySelector(".currentstatus").classList.add("statusdisplay")
+    document.querySelector(".statusbtn").classList.remove("visibletrackbtn")
+
+// getting date and month
+
+/* let months = [
+    "January", "February", 
+    "March", "April", "May", 
+    "June", "July", "August",
+    "September", "October", 
+    "November", "December"
+];
+
+let d = new Date();
+let a = d.getDate()+7 + " "
+let b = " "+2024
+document.getElementById(
+    "deliverydate").innerHTML =
+     a 
+    + months[d.getMonth()] + b;
+
+}*/
+
+
+let months = [
+    "January", "February", 
+    "March", "April", "May", 
+    "June", "July", "August",
+    "September", "October", 
+    "November", "December"
+];
+
+let d = new Date();
+d.setDate(d.getDate() + 7); // Add 7 days to the current date
+
+let day = d.getDate();
+let month = months[d.getMonth()];
+let year = d.getFullYear();
+
+document.getElementById("deliverydate").innerHTML = day + " " + month + " " + year;
+}
+</script>
+</body>
+</html>

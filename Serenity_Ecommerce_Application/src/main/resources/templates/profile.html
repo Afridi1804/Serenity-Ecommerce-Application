@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<section class="text-center">
+	
+<h1>User Profile Page</h1>
+
+<h6>Name : [[${user.firstname}]] [[${user.lastname}]]</h6>
+<h6>Age : [[${user.age}]]</h6>
+<h6>Gender : [[${user.gender}]]</h6>
+<h6>Address : [[${user.address}]]</h6>
+<h6>Email : [[${user.email}]]</h6>
+<h6>Phone : [[${user.phone}]]</h6>
+<h6>Role : [[${user.role}]]</h6>
+<a class="btn btn-primary" href="/logout" role="button">Logout</a>
+</section>
+
+</body>
+</html>

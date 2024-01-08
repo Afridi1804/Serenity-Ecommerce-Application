@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="shortcut icon" href="/anon-ecommerce-website/assets/images/Msport favicon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style data-styles="" >
+    ion-icon {
+      visibility: hidden
+    }
+
+    .hydrated {
+      visibility: inherit
+    }
+    :root {
+
+  /**
+   * colors
+   */
+
+  --spanish-gray: hsl(0, 0%, 60%);
+  --sonic-silver: hsl(0, 0%, 47%);
+  --eerie-black: hsl(0, 0%, 13%);
+  /* --salmon-pink: hsl(353, 100%, 78%); */
+  --salmon-pink: hsl(353, 100%, 57%);
+  --sandy-brown: hsl(29, 90%, 65%);
+  --bittersweet: hsl(0, 100%, 70%);
+  --ocean-green: hsl(152, 51%, 52%);
+  --davys-gray: hsl(0, 0%, 33%);
+  --cultured: hsl(0, 0%, 93%);
+  --white: hsl(0, 100%, 100%);
+  --onyx: hsl(0, 0%, 27%);
+
+  /**
+   * typography
+   */
+
+  --fs-1: 1.563rem;
+  --fs-2: 1.375rem;
+  --fs-3: 1.25rem;
+  --fs-4: 1.125rem;
+  --fs-5: 1rem;
+  --fs-6: 0.938rem;
+  --fs-7: 0.875rem;
+  --fs-8: 0.813rem;
+  --fs-9: 0.75rem;
+  --fs-10: 0.688rem;
+  --fs-11: 0.625rem;
+
+  --weight-300: 300;
+  --weight-400: 400;
+  --weight-500: 500;
+  --weight-600: 600;
+  --weight-700: 700;
+
+  /**
+   * border-radius
+   */
+
+  --border-radius-md: 10px;
+  --border-radius-sm: 5px;
+
+  /**
+   * transition 
+   */
+
+  --transition-timing: 0.2s ease;
+
+}
+
+
+.logo {
+  display: flex;
+}
+#MsportLogo{
+  width: 100px;
+  height: 40px;
+  /* border: 2px solid red; */
+  margin-right: -10px;
+}
+.skyblue{
+color: #81c4ff;
+}
+.blue{
+color: #16588e;
+}
+.red{
+color: #e7222e;
+}
+.nav_links li,
+a,
+button {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-info-black);
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  border-bottom: 3px solid #4064FB;
+  height: 0px;
+  margin-bottom: 0px;
+  /* border-radius: 10px 10px 40px 50px; */
+}
+
+nav {
+  /* border: 2px solid black; */
+
+}
+h2 {
+  font-size: 1.4rem;
+}
+
+.logo img {
+  width: 90px;
+  height: 2rem;
+}
+
+.logo h2 {
+  margin-left: -10px;
+  margin-top: 8px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+.logo {
+  margin-left: -110px;
+  margin-right: 50px;
+  cursor: pointer;
+  /* border: 2px solid black; */
+  width: 60px;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav_links li a {
+  transition: all 0.2s ease-in-out;
+  /* color: var(--color-info-black); */
+  color: hsl(0, 0%, 27%);
+    font-size: 0.875rem;;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 15px 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.nav_links li a:hover {
+  color: #4064FB;
+}
+
+.cta button {
+  background: #4064FB;
+  border: 1px solid #4064FB;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  /* font-family: 'Roboto Condensed', sans-serif; */
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 2px;
+  min-height: 20px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100%;
+}
+.material-symbols-rounded{
+  cursor: pointer;
+}
+.cta button:hover,
+.cta button:active {
+  /* background-color: initial; */
+  background-color: #F6F6F9;
+  ;
+  background-position: 0 0;
+  color: #4064FB;
+  border: 1px solid #4064FB;
+}
+
+.cta button:active {
+  opacity: .5;
+}
+
+.container {
+  display: flex;
+}
+
+/* Style for left div */
+.left {
+  width: 50%;
+  padding: 10px;
+  margin-top: 20px;
+  
+}
+.large-image {
+  width: 100%;
+  height: 500px;
+  /* background-image: url('https://images.footballfanatics.com/scuderia-ferrari/scuderia-ferrari-2023-team-polo_ss4_p-13368441+u-19y8cuowo7pyeesuinqy+v-91dbdec2a3ae498797988ba7454ffc0f.jpg?_hv=2&w=900'); */
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 10px;
+  border: 2px solid hsl(0, 0%, 93%);
+  border-radius: 7px;
+  object-fit: contain;
+}
+.small-images {
+  display: flex;
+  justify-content: space-between;
+}
+.small-imageOne {
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border: 2px solid hsl(0, 0%, 93%);
+  border-radius: 5px;
+}
+.small-imageTwo {
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border: 2px solid hsl(0, 0%, 93%);
+  border-radius: 5px;
+}
+.small-imageThree {
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border: 2px solid hsl(0, 0%, 93%);
+  border-radius: 5px;
+}
+.small-image:hover {
+  border: 2px solid #4064FB;
+}
+
+/* Style for right div */
+.right {
+  width: 50%;
+  height: 100%;
+  /* border: 2px solid red; */
+  margin-top: 30px;
+}
+.product-brand {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.product-name {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.product-sale-price {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.product-marked-price {
+  font-size: 18px;
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+.product-discount-percentage {
+  font-size: 18px;
+  color: green;
+  margin-right: 10px;
+}
+.product-rating {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+/* .add-to-cart {
+  font-size: 18px;
+  padding: 10px;
+  background-color: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.add-to-cart:hover {
+  background-color: darkblue;
+} */
+
+.add-to-cart {
+  background: #4064FB;
+  border: 1px solid #4064FB;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  /* font-family: 'Roboto Condensed', sans-serif; */
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 2px;
+  min-height: 50px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 30%;
+}
+
+.add-to-cart:hover,
+.add-to-cart:active {
+  /* background-color: initial; */
+  background-color: #F6F6F9;
+  ;
+  background-position: 0 0;
+  color: #4064FB;
+  border: 1px solid #4064FB;
+}
+
+/* Style for sliding section */
+.sliding-section {
+  margin-top: 20px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid hsl(0, 0%, 93%);
+  padding: 20px;
+}
+.slider {
+  display: flex;
+  animation: slide 10s infinite;
+}
+.slide {
+  width: 200px;
+  height: 200px;
+  margin-right: 10px;
+  background-size: cover;
+  background-position: center;
+}
+.slide:last-child {
+  margin-right: 0;
+}
+.arrow-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+.arrow-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.arrow-button.left {
+  left: 0;
+  width: 30px;
+}
+.arrow-button.right {
+  right: 0;
+  width: 30px;
+}
+.right {
+  width: 50%;
+  padding: 10px;
+}
+.size-box {
+  display: inline-block;
+  width: 50px;
+  height: 40px;
+  margin-right: 10px;
+  border: 2px solid rgb(171, 171, 171);
+  cursor: pointer;
+  text-align: center;
+  padding-top:13px;
+}
+.size-box.selected {
+  border-color: #4064FB;
+  color: #4064FB;
+}
+.size-divs{
+  margin-bottom: 30px;
+}
+.product-rating{
+  width: 190px;
+  height: 30px;
+  /* padding-top: -20px; */
+  /* border: 2px solid red; */
+  margin-bottom: -20px;
+  padding: 0px;
+}
+.product-rating-img{
+  width: 60%;
+  height: 25px;
+  margin-left: -12px;
+  /* border: 2px solid red; */
+  /* margin-bottom: -20px; */
+  /* margin-top: -20px; */
+}
+
+
+
+  </style>
+</head>
+<body>
+
+
+<!-- Start Navbar -->
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/user/home">Femsha</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/user/home">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Men's
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'T-shirt')">T-shirt</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'Shirts')">Shirts</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'Jackets')">Jackets</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'Sweatshirts')">Sweatshirts</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'Trackpants')">Trackpants</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'Shoes')">Shoes</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Mens', 'HatsCaps')">Hats & Caps</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Women's
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'T-shirt')">T-shirt</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'Shirts')">Shirts</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'Jackets')">Jackets</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'Sweatshirts')">Sweatshirts</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'Trackpants')">Trackpants</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'Shoes')">Shoes</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Womens', 'HatsCaps')">Hats & Caps</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Kid's
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'T-shirt')">T-shirt</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'Shirts')">Shirts</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'Jackets')">Jackets</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'Sweatshirts')">Sweatshirts</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'Trackpants')">Trackpants</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'Shoes')">Shoes</a></li>
+            <li><a class="dropdown-item" href="/user/productListings" onclick="handleDropdownSelection('Kids', 'HatsCaps')">Hats & Caps</a></li>
+          </ul>
+        </li>
+        
+        
+        
+        <th:block th:if="${user==NULL}">
+			
+		 
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signin">Login</a>
+        </li>
+        </th:block>
+        
+        <th:block th:if="${user!=NULL}">
+			
+			
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            User
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/user/profile">Profile</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </li>
+			
+		</th:block>
+        
+      </ul>
+      
+     
+      
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+      <a href="http://localhost:8888/user/cartPage">
+		   <i class="fa-solid fa-cart-shopping mx-3 fs-20 text-light"></i>
+	  </a>
+     
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="container">
+    <div class="left">
+      <div class="large-image-div">
+        <img class="large-image" src="" alt="Main image">
+      </div>
+      <div class="small-images">
+        <div class="small-image-div">
+          <img onclick="changeImage1(this)" class="small-imageOne" src="" alt="">
+        </div>
+        <div class="small-image-div">
+          <img onclick="changeImage2(this)" class="small-imageTwo" src="" alt="image 2">
+        </div>
+        <div class="small-image-div">
+          <img onclick="changeImage3(this)" class="small-imageThree" src="" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="product-brand">Scuderia Ferrari</div>
+      <div class="product-name">2023 Team Polo</div>
+      <div>
+        <span class="product-marked-price">$60.00</span>
+        <span class="product-discount-percentage">-20%</span>
+      </div>
+      <div class="product-sale-price">$50.00</div>
+      <div class="product-rating">
+        <p class="ratingtxt"></p>
+      </div>
+      <h3 class="my-4">Sizes</h3>
+      <div class="size-divs">
+        <div class="size-box" onclick="selectSize(this)">S</div>
+        <div class="size-box" onclick="selectSize(this)">M</div>
+        <div class="size-box" onclick="selectSize(this)">L</div>
+        <div class="size-box" onclick="selectSize(this)">XL</div>
+
+      </div>
+      <button class="add-to-cart mb-3">Add to Cart</button>
+      <div class="description">
+        <h3>Description</h3>
+        <p class="descText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, animi ea. Pariatur qui
+          officiis assumenda in, dolorum soluta facilis distinctio optio explicabo. Labore, quis hic! Nihil qui suscipit
+          esse quibusdam.</p>
+      </div>
+      <div class="delivery">
+        <p>FREE delivery <br>
+          Xpress delivery in 2 days <br>
+          Easy Returns
+        </p>
+      </div>
+    </div>
+  </div>
+  <h2></h2>
+  <div class="sliding-section">
+    <div class="slider">
+      
+      <div class="slide"
+        style="">
+      </div>
+      
+      
+    </div>
+  </div>
+	<h3 class="mx-4">Similar Products</h3>
+	<div id="product-container" class="row row-cols-1 row-cols-md-3 g-4 m-5">
+  <!-- Cards will be dynamically added here -->
+	</div>
+
+
+
+ <footer
+          class="text-center text-lg-start text-dark"
+          style="background-color: #ECEFF1"
+          >
+   
+    <section
+             class="d-flex justify-content-between p-4 text-white"
+             style="background-color: #0d6efd"
+             >
+     
+      <div class="me-5">
+        <span>Get connected with us on social networks:</span>
+      </div>
+     
+
+      
+      <div>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      
+    </section>
+    
+
+    
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+       
+        <div class="row mt-3">
+         
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold">Femsha</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #0d6efd; height: 2px"
+                />
+            <p>
+              Femsha is your one-stop-shop for all your online shopping needs. We offer a wide range of products at competitive prices, with fast and reliable shipping.
+            </p>
+          </div>
+        
+
+         
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          
+            <h6 class="text-uppercase fw-bold">Products</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #0d6efd; height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-dark">T-Shirt</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Pants</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Jackets</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Hats & Caps</a>
+            </p>
+          </div>
+          
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold">Useful links</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #0d6efd; height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-dark">Your Account</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Become an Affiliate</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Shipping Rates</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Help</a>
+            </p>
+          </div>
+       
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          
+            <h6 class="text-uppercase fw-bold">Contact</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #0d6efd; height: 2px"
+                />
+            <p><i class="fas fa-home mr-3"></i> Kolkata , West Bengal , India</p>
+            <p><i class="fas fa-envelope mr-3"></i> shahidafridi77137@gmail.com</p>
+            <p><i class="fas fa-phone mr-3"></i>+91 7439860896</p>
+            <p><i class="fas fa-print mr-3"></i>+91 8987053262</p>
+          </div>
+         
+        </div>
+        
+      </div>
+    </section>
+    
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2023 Copyright:
+      <a class="text-dark" href="https://mdbootstrap.com/"
+         >Femsha.com</a>
+    </div>
+   
+  </footer>
+
+
+
+
+<script>
+	
+	
+	 window.onload = function viewAllProducts() {
+      const container = document.getElementById('product-container');
+      const loopCount = 6; // Set the number of times to run the loop
+      
+      let obj = JSON.parse(localStorage.getItem("product_details"));
+    // document.querySelector(".product-sale-price").innerText = "₹" + 
+    
+      let company = obj["productBrand"];
+      
+      console.log(company)
+      
+      // Fetch data from the API
+      fetch('http://localhost:8888/Products/searchByBrand/' + company)  // Replace with your actual API endpoint
+     // fetch('http://localhost:8888/Products/getAllProducts')
+        .then(response => response.json())
+        .then(products => {
+          // Use a for loop to run the loopCount number of times
+          for (let i = 0; i < 9; i++) {
+            const product = products[i];
+
+            const col = document.createElement('div');
+            col.classList.add('col', 'w-10');
+
+            const card = document.createElement('div');
+            card.classList.add('card', 'h-100');
+
+            const img = document.createElement('img');
+            img.src = product.image1; // Replace with actual property names
+            img.classList.add('card-img-top');
+            img.alt = '...';
+
+            const cardBody = document.createElement('div');
+            cardBody.classList.add('card-body');
+
+            const title = document.createElement('h5');
+            title.classList.add('card-title');
+            title.textContent = product.productBrand; // Replace with actual property names
+
+			const productName = document.createElement('p');
+     	   	productName.classList.add('card-text');
+     	   	productName.textContent = product.productName;
+
+            const price = document.createElement('p');
+            price.classList.add('card-text', 'fw-bold');
+            price.textContent = `₹${product.salePrice}`; // Replace with actual property names
+
+            const markedPrice = document.createElement('p');
+            markedPrice.classList.add('card-text', 'marked-price');
+            markedPrice.textContent = `₹${product.markedPrice || ''}`; // Replace with actual property names
+
+            const buyNowButton = document.createElement('button');
+            buyNowButton.classList.add('btn', 'btn-primary');
+            buyNowButton.textContent = 'Buy Now';
+
+            // Create the anchor element for the card link
+            const cardLink = document.createElement('a');
+            cardLink.href = `http://localhost:8888/Products/getProductById/${product.productId}`; // Adjust the URL pattern
+            cardLink.appendChild(img);
+            cardLink.appendChild(cardBody);
+            cardBody.appendChild(title);
+            cardBody.appendChild(productName);
+            cardBody.appendChild(markedPrice);
+            cardBody.appendChild(price);
+            cardBody.appendChild(buyNowButton);
+
+            // Append elements to the DOM
+            container.appendChild(col);
+            col.appendChild(card);
+            card.appendChild(cardLink);
+          }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+      
+      
+      }
+	
+	
+	
+	
+	
+    var slider = document.querySelector('.slider');
+    var slideWidth = document.querySelector('.slide').offsetWidth;
+    var slideIndex = 0;
+
+    function selectSize(element) {
+      var sizeBoxes = document.querySelectorAll('.size-box');
+      for (var i = 0; i < sizeBoxes.length; i++) {
+        sizeBoxes[i].classList.remove('selected');
+      }
+      element.classList.add('selected');
+    }
+
+    function slideLeft() {
+      if (slideIndex > 0) {
+        slideIndex--;
+        slider.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+      }
+    }
+
+    function slideRight() {
+      if (slideIndex < slider.children.length - 1) {
+        slideIndex++;
+        slider.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+      }
+    }
+
+    function changeImage(element) {
+      var imageUrl = element.src;
+      // console.log(element.src);
+      document.querySelector('.large-image').setAttribute('src', imageUrl);
+
+    }
+
+    let obj = JSON.parse(localStorage.getItem("product_details"));
+    document.querySelector(".product-sale-price").innerText = "₹" + obj["salePrice"]
+    document.querySelector(".product-marked-price").innerText = "₹" + obj["markedPrice"]
+
+    document.querySelector(".product-brand").innerText = obj["productBrand"]
+    document.querySelector(".product-name").innerText = obj["productName"]
+    document.querySelector(".product-discount-percentage").innerText = obj["discountPercentage"] + "%";
+    document.querySelector(".ratingtxt").innerText = obj["rating"] + "/5"
+    // document.querySelector(".product-rating-img").setAttribute("src",obj["productrating"])  required change
+    // document.querySelector(".descText").innerHTML = obj["description"]
+    // document.querySelector(".large-image").setAttribute("src",obj["image1"])
+    console.log(obj)
+    document.querySelector(".small-imageOne").setAttribute("src", obj["image1"])
+    document.querySelector(".small-imageTwo").setAttribute("src", obj["image2"])
+    document.querySelector(".small-imageThree").setAttribute("src", obj["image3"])
+    document.querySelector(".large-image").setAttribute("src", obj["image1"])
+
+    document.querySelector('.small-images :nth-child(2) img');
+
+    let cartItems = JSON.parse(localStorage.getItem("cartproducts")) || [];
+    let cart_btn = document.querySelector(".add-to-cart");
+
+    cart_btn.addEventListener("click", function () {
+      if (cartItems.includes(obj)) {
+        alert("Already Existing Item in Cart")
+      } else {
+        cartItems.push(obj);
+        localStorage.setItem("cartproducts", JSON.stringify(cartItems));
+        alert("Item added to Cart")
+      }
+
+    })
+
+
+    function changeImage1(img) {
+      var src = img.getAttribute('src');
+      console.log(src);
+      document.querySelector(".large-image").setAttribute("src", src)
+    }
+    function changeImage2(img) {
+      var src = img.getAttribute('src');
+      console.log(src);
+      document.querySelector(".large-image").setAttribute("src", src)
+    }
+    function changeImage3(img) {
+      var src = img.getAttribute('src');
+      console.log(src);
+      document.querySelector(".large-image").setAttribute("src", src)
+    }
+
+    function redirectToHome() {
+      window.location.href = "index.html"
+    }
+
+    function goToCart() {
+      window.location.href = "Cart.html"
+    }
+
+  </script>
+  		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

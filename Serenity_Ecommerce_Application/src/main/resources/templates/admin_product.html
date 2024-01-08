@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org" >
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin Product</title>
+
+
+<!-- <h1>Admin Product</h1> -->
+
+<link rel="shortcut icon" href="/anon-ecommerce-website/assets/images/Msport favicon.png" type="image/x-icon">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style th:inline="css">
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    /* table {
+  border-collapse: collapse;
+  border: 2px solid black;
+}*/
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+
+    button[type="button"] {
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+
+    /* button[type="button"].delete {
+      background-color: red;
+      color: white;
+    }
+
+    button[type="button"].update {
+      background-color: blue;
+      color: white;
+    } */
+
+    /* 
+ */
+
+    .operationbuttons {
+      font-family: "Open Sans", sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #000;
+      cursor: pointer;
+      border: 3px solid;
+      padding: 0.25em 0.5em;
+      box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      width: auto;
+
+    }
+
+    .operationbuttons:active {
+      box-shadow: 0px 0px 0px 0px;
+      top: 5px;
+      left: 5px;
+    }
+
+    @media (min-width: 768px) {
+      .operationbuttons {
+        padding: 0.25em 0.75em;
+      }
+    }
+
+    .allbuttons {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    #productId {
+      /* border: 2px solid red; */
+      margin-top: 20px;
+      margin-bottom: 10px;
+      width: 71%;
+    }
+
+    .firsttwobuttons {
+      display: flex;
+      gap: 20px;
+    }
+
+
+    .searchbtn {
+
+      margin-bottom: 10px;
+      background: #4064FB;
+      border: 1px solid #4064FB;
+      border-radius: 6px;
+      box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+      /* font-family: 'Roboto Condensed', sans-serif; */
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 2px;
+      min-height: 20px;
+      outline: 0;
+      padding: 12px 14px;
+      text-align: center;
+      text-rendering: geometricprecision;
+      text-transform: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+      height: 45px;
+      width: auto;
+      margin-left: 20px;
+    }
+    .searchbtn:hover,
+.searchbtn:active {
+      /* background-color: initial; */
+      background-color: #F6F6F9;
+      ;
+      background-position: 0 0;
+      color: #4064FB;
+      border: 1px solid #4064FB;
+    }
+
+
+    .searchbtn:active {
+      opacity: .5;
+    }
+    
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+    /* with the help of this root we can initialize some colors like variables hat we wil use in the whole website and if we can one of those then all the colors used of  that variable in the website will change */
+
+    :root {
+      --color-primary: #4064FB;
+      --color-primary-variant: #111e88;
+      --color-success: #41f1b6;
+      --color-warning: #ffbb55;
+      --color-danger: #ff7782;
+      --color-danger-variant: rgba(247, 88, 66, 0.4);
+      --color-white: #fff;
+      --color-info-light: #dce1eb;
+      --color-info-black: #7d8da1;
+      --color-dark: #363949;
+      --color-dark-variant: #677483;
+      --color-light: rgba(132, 139, 200, 0.18);
+      --color-bg: #1f2641;
+      --color-bg1: #2e3267;
+      --color-bg2: #424890;
+      --color-background: #f6f6f9;
+
+      --card-border-radius: 2rem;
+      --border-radius-1: 0.4rem;
+      --border-radius-2: 0.8rem;
+      --border-radius-3: 1.2rem;
+
+      --card-padding: 1.8rem;
+      --padding-1: 1.2rem;
+
+      --box-shadow: 0 2rem 3rem var(--color-light);
+
+      --container-width-lg: 80%;
+      --container-width-md: 90%;
+      --container-width-sm: 94%;
+
+      --transition: all 400ms ease;
+
+      --clr-primary: #81d4fa;
+      --clr-primary-light: #e1f5fe;
+      --clr-primary-dark: #4fc3f7;
+      --clr-gray100: #f9fbff;
+      --clr-gray150: #f4f6fb;
+      --clr-gray200: #eef1f6;
+      --clr-gray300: #e1e5ee;
+      --clr-gray400: #767b91;
+      --clr-gray500: #4f546c;
+      --clr-gray600: #2a324b;
+      --clr-gray700: #161d34;
+      --clr-pending: #fff0c2;
+      --clr-pending-font: #a68b00;
+      --clr-unpaid: #ffcdd2;
+      --clr-unpaid-font: #c62828;
+      --clr-paid: #c8e6c9;
+      --clr-paid-font: #388e3c;
+      --clr-link: #2962ff;
+
+      --radius: 0.2rem;
+    }
+
+    /* dark theme */
+
+    .dark-theme-variable {
+      --color-background: #181a1e;
+      --color-white: #202528;
+      --color-dark: #edeffd;
+      --color-dark-variant: #a3bdcc;
+      --color-light: rgba(0, 0, 0, 0.4);
+      --box-shadow: 0 2rem 3rem var(--color-light);
+    }
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      outline: 0;
+      appearance: none;
+      border: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 14px;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      font-family: poppins, sans-serif;
+      font-size: 0.88rem;
+      background: var(--color-background);
+      user-select: none;
+      overflow-x: hidden;
+      color: var(--color-dark);
+    }
+
+    .logo h2 {
+      /* border: 2px solid red; */
+      margin-top: 8px;
+    }
+
+    #MsportLogo {
+      width: 100%;
+      /* border: 2px solid red; */
+      margin-right: -10px;
+    }
+
+    .skyblue {
+      color: #81c4ff;
+    }
+
+    .blue {
+      color: #16588e;
+    }
+
+    .red {
+      color: #e7222e;
+    }
+
+    .containers {
+      display: flex;
+      width: 96%;
+      margin: 0 auto;
+      /* background: red; */
+      /* gap: 1.8rem;
+    grid-template-columns: 14rem auto 23rem; */
+    }
+
+    a {
+      color: var(--color-dark);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    h1 {
+      font-weight: 800;
+      font-size: 1.8rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    h3 {
+      font-size: 0.87rem;
+    }
+
+    h4 {
+      font-size: 0.8rem;
+    }
+
+    h5 {
+      font-size: 0.77rem;
+    }
+
+    small {
+      font-size: 0.75rem;
+    }
+
+    .profile-photo {
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-left: -20px;
+    }
+
+    .text-muted {
+      color: var(--color-info-black);
+    }
+
+    p {
+      color: var(--color-dark-variant);
+    }
+
+    b {
+      color: var(--color-dark);
+    }
+
+    .primary {
+      color: var(--color-primary);
+    }
+
+    .danger {
+      color: var(--color-danger);
+    }
+
+    .success {
+      color: var(--color-success);
+    }
+
+    .warning {
+      color: var(--color-warning);
+    }
+
+
+
+    aside {
+      height: 100%;
+      /* background: grey; */
+      border-right: 3px solid #4064FB;
+      border-bottom: 3px solid #4064FB;
+      width: 250px;
+      margin-left: -20px;
+      /* margin-right: -70px; */
+      /* border: 2px solid red; */
+    }
+
+    aside .top {
+      /* background: white; */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.4rem;
+    }
+
+    aside .logo {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    aside .close {
+      display: none;
+    }
+
+    /* sidebar */
+
+    aside .sidebar {
+      /* background: white; */
+      display: flex;
+      flex-direction: column;
+      height: 86vh;
+      position: relative;
+      margin-top: -20px;
+      /* border: 2px solid red; */
+    }
+
+    aside h3 {
+      font-weight: 500;
+    }
+
+    aside .sidebar a {
+      display: flex;
+      color: var(--color-info-black);
+      margin-left: 2rem;
+      gap: 1rem;
+      align-items: center;
+      position: relative;
+      height: 3.7rem;
+      transition: all 300ms ease;
+    }
+
+    aside .sidebar a span {
+      font-size: 1.6rem;
+      transition: all 300ms ease;
+    }
+
+    aside .sidebar a:last-child {
+      position: absolute;
+      bottom: 2rem;
+      width: 100%;
+    }
+
+    aside .sidebar a.active {
+      background: var(--color-light);
+      color: #4064FB;
+      margin-left: 0;
+    }
+
+    aside .sidebar a.active::before {
+      content: "";
+      width: 6px;
+      height: 100%;
+      background: #4064FB;
+    }
+
+    aside .sidebar a.active span {
+      color: #4064FB;
+      margin-left: calc(1rem - 3px);
+    }
+
+    aside .sidebar a:hover {
+      color: #4064FB;
+    }
+
+    aside .sidebar a:hover span {
+      margin-left: 1rem;
+    }
+
+    aside .sidebar .message_count {
+      background: var(--color-danger);
+      color: var(--color-white);
+      padding: 2px 10px;
+      font-size: 11px;
+      border-radius: var(--border-radius-1);
+    }
+
+
+    main {
+      margin-top: 1.4rem;
+      /* border: 2px solid red; */
+    }
+
+    main .date {
+      display: inline-block;
+      background: var(--color-light);
+      border-radius: var(--border-radius-1);
+      margin-top: 1rem;
+      padding: 0.5rem 1.6rem;
+    }
+
+
+
+    main .recent_orders {
+      margin-top: 2rem;
+    }
+
+    main .recent_orders h2 {
+      margin-bottom: 0.8rem;
+    }
+
+    main .recent_orders table {
+      background: var(--color-white);
+      width: 100%;
+      border-radius: var(--card-border-radius);
+      padding: var(--card-padding);
+      text-align: center;
+      box-shadow: var(--box-shadow);
+      transition: all 300ms ease;
+    }
+
+    table {
+      margin-bottom: 20px;
+      /* border: 2px solid red; */
+
+    }
+
+    main .recent_orders table:hover {
+      box-shadow: none;
+    }
+
+    main table tbody td {
+      height: 2.8rem;
+      /* border-bottom: 1px solid var(--color-light); */
+      color: var(--color-dark-variant);
+      text-align: center;
+    }
+
+    /* main table tbody tr:last-child td{
+    border: none;
+} */
+
+    main .recent_orders a {
+      text-align: center;
+      display: block;
+      margin: 1rem auto;
+      color: var(--color-primary);
+    }
+
+    #form-container {
+      position: fixed;
+      top: 10%;
+      left: 24%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      background-color: #e5e5e5;
+      border-radius: 20px;
+      box-sizing: border-box;
+      height: auto;
+      padding: 20px;
+      width: 820px;
+    }
+
+.singleform{
+  position: fixed;
+      top: 10%;
+      left: 24%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      background-color: #e5e5e5;
+      border-radius: 20px;
+      box-sizing: border-box;
+      height: auto;
+      padding: 20px;
+      width: 820px;
+}
+
+    #form-containerupdate {
+      position: fixed;
+      top: 10%;
+      left: 24%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      background-color: #e5e5e5;
+      border-radius: 20px;
+      box-sizing: border-box;
+      height: auto;
+      padding: 20px;
+      width: 820px;
+    }
+
+    #form-container h2 {
+      color: #4064FB;
+      text-align: center;
+    }
+
+    #form-containerupdate h2 {
+      color: #4064FB;
+      text-align: center;
+    }
+
+    #form-container label {
+      color: black;
+      margin-right: 10px;
+      margin-left: 5px;
+    }
+
+    #form-containerupdate label {
+      color: black;
+      margin-right: 10px;
+      margin-left: 5px;
+      /* text-align: center; */
+    }
+
+    #form-container span {
+      color: white;
+      margin-left: 270px;
+    }
+
+    #form-containerupdate span {
+      color: white;
+      margin-left: 270px;
+    }
+
+    .input {
+      background-color: #F6F6F9;
+      border-radius: 12px;
+      border: 1px solid #c0c0c0;
+      box-sizing: border-box;
+      color: #7380EC;
+      font-size: 18px;
+      height: 50px;
+      outline: 0;
+      padding: 4px 20px 0;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .submit {
+      background: #4064FB;
+      border: 1px solid #4064FB;
+      border-radius: 6px;
+      box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+      /* font-family: 'Roboto Condensed', sans-serif; */
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 2px;
+      min-height: 50px;
+      outline: 0;
+      padding: 12px 14px;
+      text-align: center;
+      text-rendering: geometricprecision;
+      text-transform: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+      width: 100%;
+      margin-top: 38px;
+    }
+
+    .submit:hover,
+    .submit:active {
+      /* background-color: initial; */
+      background-color: #F6F6F9;
+      ;
+      background-position: 0 0;
+      color: #4064FB;
+      border: 1px solid #4064FB;
+    }
+
+    .submit:active {
+      opacity: .5;
+    }
+
+    /* .form {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 420px;
+    padding: 20px;
+    width: 320px;
+  } */
+
+    #form-container form {
+      /* background-color: white; */
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    #form-containerupdate form {
+      /* background-color: white; */
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .td {
+      margin: 0px 10px;
+    }
+
+    .tdlast {
+      /* border: 2px solid red; */
+      padding: 8px 10px;
+      background-color: #F6F6F9;
+      border-radius: 12px;
+    }
+
+    .tdlast input {
+      border: 1px solid #c0c0c0;
+      /* background-color: #7380EC; */
+      padding: 5px 5px;
+      border-radius: 5px;
+    }
+
+    .tdlast select {
+      border: 1px solid #c0c0c0;
+      /* background-color: #7380EC; */
+      padding: 5px 5px;
+      border-radius: 5px;
+    }
+
+    .cclose {
+      /* background: #000; */
+      color: black;
+      right: 0;
+      margin-left: 760px;
+      /* width: 20px; */
+    }
+
+    .cclose i {
+      font-size: 20px;
+    }
+
+    /* .full_page#blur.active{
+    filter: blur(10px) ;
+    pointer-events: none;
+    user-select: none;
+} */
+    /* Navbar */
+
+    .nav_links li,
+    a,
+    button {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--color-info-black);
+      text-decoration: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 10%;
+      border-bottom: 3px solid #4064FB;
+      height: 30px;
+      /* border-radius: 10px 10px 40px 50px; */
+    }
+
+    nav {
+      /* border: 2px solid black; */
+
+    }
+
+
+    .logo img {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .logo h2 {
+      margin-left: -10px;
+      margin-top: 6px;
+    }
+
+    .logo {
+      margin-left: -110px;
+      margin-right: 50px;
+      cursor: pointer;
+      /* border: 2px solid black; */
+      width: 60px;
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .nav_links {
+      list-style: none;
+    }
+
+    .nav_links li {
+      display: inline-block;
+      padding: 0px 20px;
+    }
+
+    .nav_links li a {
+      transition: all 0.2s ease-in-out;
+      color: var(--color-info-black);
+    }
+
+    .nav_links li a:hover {
+      color: #4064FB;
+    }
+
+    .cta button {
+      background: #4064FB;
+      border: 1px solid #4064FB;
+      border-radius: 6px;
+      box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+      /* font-family: 'Roboto Condensed', sans-serif; */
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 2px;
+      min-height: 20px;
+      outline: 0;
+      padding: 12px 14px;
+      text-align: center;
+      text-rendering: geometricprecision;
+      text-transform: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    .cta button:hover,
+    .cta button:active {
+      /* background-color: initial; */
+      background-color: #F6F6F9;
+      ;
+      background-position: 0 0;
+      color: #4064FB;
+      border: 1px solid #4064FB;
+    }
+
+    .cta button:active {
+      opacity: .5;
+    }
+
+    /* Navbar ends */
+
+    /* Table design */
+
+    /*   color variables */
+
+
+    /*   border radius */
+    /* $radius: 0.2rem; */
+
+    /* *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    } */
+
+    /* body {
+      font-family: Mukta, sans-serif;
+      height: 100vh;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      color: var(--clr-gray500);
+      font-size: 0.9rem;
+      background-color: var(--clr-gray100);
+    } */
+
+    table {
+      border-collapse: collapse;
+      box-shadow: 0 5px 10px var(--clr-gray300);
+      background-color: white;
+      text-align: left;
+      overflow: hidden;
+      margin-left: 60px;
+      /* max-width: 800px; */
+      width:93%;
+      margin-right: -450px;
+      /* border: 2px solid red; */
+      border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    /* border: none; */
+    }
+      thead {
+        box-shadow: 0 5px 10px var(--clr-gray300);
+      }
+
+      th {
+        padding: 1rem 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-size: 0.7rem;
+        font-weight: 900;
+        border: none;
+        background: #4064FB;
+        color: white;
+      }
+
+      td {
+        padding: 1rem 2rem;
+        border: none;
+      }
+.lastTD{
+  /* display: flex; */
+}
+.lastTD .update{
+  margin-bottom: 10px;
+  background: #4064FB;
+      border: 1px solid #4064FB;
+      border-radius: 6px;
+      box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+      /* font-family: 'Roboto Condensed', sans-serif; */
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 2px;
+      min-height: 20px;
+      outline: 0;
+      padding: 12px 14px;
+      text-align: center;
+      text-rendering: geometricprecision;
+      text-transform: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+      width: 100%;
+  /* display: flex; */
+}
+.lastTD .closesingleTable{
+  margin-bottom: 10px;
+  background: #F6F6F9;
+      border: 1px solid #4064FB;
+      border-radius: 6px;
+      box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+      box-sizing: border-box;
+      color: #4064FB;
+      cursor: pointer;
+      display: inline-block;
+      font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+      /* font-family: 'Roboto Condensed', sans-serif; */
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 2px;
+      min-height: 20px;
+      outline: 0;
+      padding: 12px 14px;
+      text-align: center;
+      text-rendering: geometricprecision;
+      text-transform: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+      width: 100%;
+  /* display: flex; */
+}
+
+.lastTD .delete{
+  margin-bottom: 10px;
+  background: rgb(243, 89, 89);
+      border: 1px solid rgb(243, 89, 89);
+      border-radius: 6px;
+      box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+      /* font-family: 'Roboto Condensed', sans-serif; */
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 2px;
+      min-height: 20px;
+      outline: 0;
+      padding: 12px 14px;
+      text-align: center;
+      text-rendering: geometricprecision;
+      text-transform: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+      width: 100%;
+  /* display: flex; */
+}
+
+.lastTD .update:hover,
+.lastTD .update:active {
+      /* background-color: initial; */
+      background-color: #F6F6F9;
+      ;
+      background-position: 0 0;
+      color: #4064FB;
+      border: 1px solid #4064FB;
+    }
+.lastTD .closesingleTable:hover,
+.lastTD .closesingleTable:active {
+      /* background-color: initial; */
+      background-color: #4064FB;
+      ;
+      background-position: 0 0;
+      color: #F6F6F9;
+      border: 1px solid #4064FB;
+    }
+.lastTD .delete:hover,
+.lastTD .delete:active {
+      /* background-color: initial; */
+      background-color: #F6F6F9;
+      ;
+      background-position: 0 0;
+      color: rgb(243, 89, 89);
+      border: 1px solid rgb(243, 89, 89);
+    }
+
+    .lastTD button:active {
+      opacity: .5;
+    }
+      a {
+        text-decoration: none;
+        color: var(--clr-link);
+      }
+
+      .status {
+        border-radius: var(--radius);
+        background-color: red;
+        padding: 0.2rem 1rem;
+        text-align: center;
+      }
+        -pending {
+          background-color: var(--clr-pending);
+          color: var(--clr-pending-font);
+        }
+
+        -paid {
+          background-color: var(--clr-paid);
+          color: var(--clr-paid-font);
+        }
+
+        -unpaid {
+          background-color: var(--clr-unpaid);
+          color: var(--clr-unpaid-font);
+        }
+      
+
+      .amount {
+        text-align: right;
+      }
+
+      /* Color alternate rows */
+      tr:nth-child(even) {
+        background-color: var(--clr-gray150);
+      }
+    .imgOne{
+      mix-blend-mode: multiply;
+    }
+
+    /* Table design */
+  </style>
+
+</head>
+<body>
+
+
+  <!-- Update form -->
+
+
+  <div id="form-containerupdate" style="display: none;">
+    <div class="cclose">
+      <i class="fa-solid fa-xmark" onclick="closeUpdateForm()" style="color: #4064fb;"></i>
+    </div>
+    <h2>Update Product</h2>
+    <form id="updateForm">
+      <div class="row">
+
+        <div class="td">
+          <label for="image1">Image 1:</label>
+          <input class="input" type="text" id="image1" name="image1"><br>
+        </div>
+
+        <div class="td">
+          <label for="image2">Image 2:</label>
+          <input class="input" type="text" id="image2" name="image2"><br>
+        </div>
+
+        <div class="td">
+          <label for="image3">Image 3:</label>
+          <input class="input" type="text" id="image3" name="image3">
+          <br>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="td">
+          <label for="productBrand">Product Brand:</label>
+          <input class="input" type="text" id="productBrand" name="productBrand"><br>
+        </div>
+
+        <div class="td">
+          <label for="productName">Product Name:</label>
+          <input class="input" type="text" id="productName" name="productName"><br>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="td">
+          <label for="productType">Product Type:</label>
+          <input class="input" type="text" id="productType" name="productType">
+        </div>
+        <div class="td">
+          <label for="description">Description:</label>
+          <input class="input" type="text" id="description" name="description">
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="td">
+          <label for="salePrice">Sale Price:</label>
+          <input class="input" type="number" id="salePrice" name="salePrice"><br>
+        </div>
+        <div class="td">
+          <label for="markedPrice">Marked Price:</label>
+          <input class="input" type="number" id="markedPrice" name="markedPrice"><br>
+        </div>
+        <div class="td">
+          <label for="discountPercentage">Discount Percentage:</label>
+          <input class="input" type="number" id="discountPercentage" name="discountPercentage"><br>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="td">
+          <label for="quantity">Quantity:</label>
+          <input class="input" type="number" id="quantity" name="quantity"><br>
+        </div>
+
+        <div class="td">
+          <label for="isAvailable">IsAvailable:</label>
+          <input class="input" type="text" id="isAvailable" name="isAvailable"><br>
+        </div>
+
+
+        <div class="td">
+          <label for="totalSold">totalSold:</label>
+          <input class="input" type="number" id="totalSold" name="totalSold"><br>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+      
+        <div class="tdlast">
+          <label for="rating">Rating:</label>
+          <select id="rating" name="rating">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select><br>
+        </div>
+
+      </div>
+
+      <button type="button" class="submit" onclick="updatingProduct()">Submit</button>
+    </form>
+  </div>
+
+
+
+  <!-- Add product form -->
+
+
+  <div id="form-container" style="display: none;">
+    <div class="cclose">
+      <i class="fa-solid fa-xmark" onclick="closeAddForm()" style="color: #4064fb;"></i>
+    </div>
+    <h2>Add Product</h2>
+
+
+    <form id="AddproductForm">
+
+
+      <div class="row">
+
+        <div class="td">
+          <label for="image1">Image 1:</label>
+          <input class="input" type="text" id="image1" name="image1"><br>
+        </div>
+
+        <div class="td">
+          <label for="image2">Image 2:</label>
+          <input class="input" type="text" id="image2" name="image2"><br>
+        </div>
+
+        <div class="td">
+          <label for="image3">Image 3:</label>
+          <input class="input" type="text" id="image3" name="image3">
+          <br>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="td">
+          <label for="productBrand">Product Brand:</label>
+          <input class="input" type="text" id="productBrand" name="productBrand"><br>
+        </div>
+
+        <div class="td">
+          <label for="productName">Product Name:</label>
+          <input class="input" type="text" id="productName" name="productName"><br>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="td">
+          <label for="productType">Product Type:</label>
+          <input class="input" type="text" id="productType" name="productType">
+        </div>
+        <div class="td">
+          <label for="description">Description:</label>
+          <input class="input" type="text" id="description" name="description">
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="td">
+          <label for="salePrice">Sale Price:</label>
+          <input class="input" type="number" id="salePrice" name="salePrice"><br>
+        </div>
+        <div class="td">
+          <label for="markedPrice">Marked Price:</label>
+          <input class="input" type="number" id="markedPrice" name="markedPrice"><br>
+        </div>
+        <div class="td">
+          <label for="discountPercentage">Discount Percentage:</label>
+          <input class="input" type="number" id="discountPercentage" name="discountPercentage"><br>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="td">
+          <label for="quantity">Quantity:</label>
+          <input class="input" type="number" id="quantity" name="quantity"><br>
+        </div>
+
+        <div class="td">
+          <label for="isAvailable">IsAvailable:</label>
+          <input class="input" type="text" id="isAvailable" name="isAvailable"><br>
+        </div>
+
+
+        <div class="td">
+          <label for="totalSold">totalSold:</label>
+          <input class="input" type="number" id="totalSold" name="totalSold"><br>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        
+        <div class="tdlast">
+          <label for="rating">Rating:</label>
+          <select id="rating" name="rating">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select><br>
+        </div>
+
+      </div>
+
+      <button type="button" class="submit" onclick="AddingProduct()">Submit</button>
+    </form>
+  </div>
+
+
+
+  <!-- onclick="AddingProduct()" -->
+
+
+  <div class="full_page" id="blur">
+    <!-- <header> -->
+
+    <header>
+      <div class="logo" onclick="redirectToHome()">
+        <img id="MsportLogo" src="Images/Msport.png" alt="">
+        <h2>SOU<span class="skyblue">M</span><span class="blue">I</span><span class="red">T</span></h2>
+      </div>
+      <!-- <img class="logo" src="#" alt="Logo"> -->
+      <nav>
+        <ul class="nav_links">
+          <li><a href="admin.html">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="/logout"><button>Logout</button></a>
+    </header>
+
+    <!-- </header> -->
+
+
+
+
+    <div class="containers">
+
+      <aside>
+        <div class="top">
+          <!-- <div class="logo">
+            <img id="MsportLogo" src="Images/Msport.png" alt="">
+            <h2>SOU<span class="skyblue">M</span><span class="blue">I</span><span class="red">T</span></h2>
+        </div> -->
+          <div class="close" id="close-btn">
+            <span class="material-symbols-rounded">close</span>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <a href="#" class="active">
+            <span class="material-symbols-rounded" type="button" id="viewAllButton">dashboard</span>
+            <h3>View All Products</h3>
+          </a>
+          <a href="#"><span class="material-symbols-rounded">
+              add
+            </span>
+            <h3 type="button" id="addProductButton" onclick="AddForm()">Add product</h3>
+          </a>
+
+          <a href="#"><span class="material-symbols-rounded">
+              receipt_long
+            </span>
+            <h3 type="button" onclick="showSearchById()">Search By id</h3>
+          </a>
+
+          <a href="#"><span class="material-symbols-rounded">
+            badge
+            </span>
+            <h3 type="button" onclick="showSearchByName()">Search By Name</h3>
+          </a>
+
+          <a href="#"><span class="material-symbols-rounded">
+              mail
+            </span>
+            <h3 type="button" onclick="showSearchByBrand()">Search By Brand</h3>
+            <!-- <span class="message_count">26</span> -->
+          </a>
+
+
+          <a href="#"><span class="material-symbols-rounded">
+            star
+            </span>
+            <h3 type="button" onclick="showSearchByRating()">Search By Rating</h3>
+          </a>
+
+          <a href="#"><span class="material-symbols-rounded">
+            category
+            </span>
+            <h3 type="button" onclick="showSearchBytype()">Search By type</h3>
+          </a>
+          <!-- original -->
+          <!-- <a href="#"><span class="material-symbols-rounded">
+            settings
+            </span>
+            <h3>Settings</h3>
+        </a> -->
+          <!-- custom made -->
+          <a href="#"><span class="material-symbols-rounded">
+              search
+            </span>
+            <h3 type="button" onclick="showSearchByavailability()">Search By availability</h3>
+          </a>
+
+
+
+          <a href="#"><span class="material-symbols-rounded">
+              logout
+            </span>
+            <h3>Logout</h3>
+          </a>
+
+        </div>
+      </aside>
+      <main>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Product Image</th>
+              <th>Product Brand</th>
+              <th>Product Name</th>
+              <th>Product Type</th>
+              <th>Sale Price</th>
+              <th>Marked Price</th>
+              <th>Discount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+
+      </main>
+
+
+    </div>
+
+
+    <!-- <div class="allbuttons"> -->
+    <!-- <button class="operationbuttons" >Add Product</button> -->
+    <!-- <button class="operationbuttons" type="button" id="viewAllButton">View All Products</button> -->
+
+    <!-- <div class="firsttwobuttons">
+</div> -->
+    <!-- Search by id -->
+
+    <div>
+      <!-- <button class="operationbuttons" type="button" onclick="showSearchById()">Search Product by ID</button> -->
+      <div id="searchById" class="singleform" style="display: none;">
+        <div class="cclose">
+          <i class="fa-solid fa-xmark" onclick="closeSingleForm()" style="color: #4064fb;"></i>
+        </div>
+        <input type="text" class="input" id="productId" placeholder="Enter Product ID">
+        <button class="searchbtn" type="button" onclick="searchById()">Search</button>
+      </div>
+    </div>
+
+    <!-- search by name -->
+
+    <div>
+      <!-- <button class="operationbuttons" type="button" onclick="showSearchByName()">Search Product by Name</button> -->
+      <div id="showSearchByName" class="singleform" style="display: none;">
+        <div class="cclose">
+          <i class="fa-solid fa-xmark" onclick="closeSingleForm()" style="color: #4064fb;"></i>
+        </div>
+        <input type="text" id="productNames" class="input" placeholder="Enter Product Name">
+        <button class="searchbtn" type="button" onclick="searchByName()">Search</button>
+      </div>
+    </div>
+
+    <!-- Search by brand -->
+
+    <div>
+      <!-- <button class="operationbuttons" type="button" onclick="showSearchByBrand()">Search Product by Brand</button> -->
+      <div id="showSearchByBrand" class="singleform" style="display: none;">
+        <div class="cclose">
+          <i class="fa-solid fa-xmark" onclick="closeSingleForm()" style="color: #4064fb;"></i>
+        </div>
+        <input type="text" id="productBrands" class="input" placeholder="Enter Product Brand">
+        <button class="searchbtn" type="button" onclick="searchByBrand()">Search</button>
+      </div>
+    </div>
+
+    <!-- search by rating -->
+
+    <div>
+      <!-- <button class="operationbuttons" type="button" onclick="showSearchByRating()">Search Product by Rating</button> -->
+      <div id="showSearchByRating" class="singleform" style="display: none;">
+        <div class="cclose">
+          <i class="fa-solid fa-xmark" onclick="closeSingleForm()" style="color: #4064fb;"></i>
+        </div>
+        <input type="text" id="productRatings" class="input" placeholder="Enter Product Rating">
+        <button class="searchbtn" type="button" onclick="searchByRating()">Search</button>
+      </div>
+    </div>
+
+    <!-- Search by availability -->
+
+    <div>
+      <!-- <button class="operationbuttons" type="button" onclick="showSearchByavailability()">Search Product by availability</button> -->
+      <div id="showSearchByavailability" class="singleform" style="display: none;">
+        <div class="cclose">
+          <i class="fa-solid fa-xmark" onclick="closeSingleForm()" style="color: #4064fb;"></i>
+        </div>
+        <input type="text" id="productavailabilitys" class="input" placeholder="Enter Product availability">
+        <button class="searchbtn" type="button" onclick="searchByavailability()">Search</button>
+      </div>
+    </div>
+
+
+
+    <!-- Search by type -->
+
+    <div>
+      <!-- <button class="operationbuttons" type="button" onclick="showSearchBytype()">Search Product by availability</button> -->
+      <div id="showSearchBytype" class="singleform" style="display: none;">
+        <div class="cclose">
+          <i class="fa-solid fa-xmark" onclick="closeSingleForm()" style="color: #4064fb;"></i>
+        </div>
+        <input type="text" id="producttypes" class="input" placeholder="Enter Product type">
+        <button class="searchbtn" type="button" onclick="searchBytype()">Search</button>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div id="productTableContainer"></div>
+
+
+
+  </div>
+  <script th:inline="javascript" type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js">
+  </script>
+  <script th:inline="javascript" nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script th:inline="javascript">
+
+    var count = 0;
+
+
+
+    window.onload = function viewAllProducts() {
+      fetch('http://localhost:8888/Products/getAllProducts')
+        .then(response => response.json())
+        .then(data => {
+          var products = data;
+
+          console.log(products)
+
+          for (var i = 0; i < products.length; i++) {
+            var product = products[i];
+            const tr = document.createElement('tr');
+            const trContent = `
+    <td><img src=${product.image1} alt='Product Image' class='imgOne' width='100' height='100'></td>
+    <td>${product.productBrand}</td>
+    <td>${product.productName}</td>
+    <td>${product.productType}</td>
+    <td class = 'salePrice'>₹ ${product.salePrice}</td>
+    <td class = 'salePrice'>₹ ${product.markedPrice}</td>
+    <td>${product.discountPercentage}%</td>
+    <td class='lastTD'><button type='button' class='delete' onclick='deleteProduct(${product.productId})'>Delete</button> <button type='button' class='update' onclick='updateProduct(${product.productId})'>Update</button></td>
+
+    `;
+
+
+            tr.innerHTML = trContent;
+            document.querySelector('table tbody').appendChild(tr);
+
+          }
+
+        })
+        .catch(error => console.log(error));
+    }
+
+
+
+
+
+    function deleteProduct(productId) {
+      console.log(productId)
+      fetch('http://localhost:8888/Products/deleteProduct/' + productId, {
+        method: 'DELETE'
+      })
+        .then(response => {
+          // Handle successful response
+          alert("Deleted successfully")
+          // Reload the table after deleting the product
+          window.location.reload()
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+
+    // function updateProduct(productId) {
+    //   // Handle update product functionality
+    // }
+
+    var updateproductid = 0;
+
+    function updateProduct(productId) {
+
+      let Blur = document.getElementById("blur")
+      Blur.classList.toggle('active')
+
+      var forms = document.getElementById("form-containerupdate");
+      forms.style.display = "block";
+      updateproductid = productId;
+    }
+    // updateFormdiv
+    function updatingProduct() {
+
+      var form = document.getElementById("updateForm");
+      var formData = new FormData(form);
+      const image1 = formData.get("image1");
+      const image2 = formData.get("image2");
+      const image3 = formData.get("image3");
+      const productBrand = formData.get("productBrand");
+      const productName = formData.get("productName");
+      const productType = formData.get("productType");
+      const description = formData.get("description");
+      const salePrice = formData.get("salePrice");
+      const markedPrice = formData.get("markedPrice");
+      const isAvailable = formData.get("isAvailable");
+      const discountPercentage = formData.get("discountPercentage");
+      const totalSold = formData.get("totalSold");
+      const quantity = formData.get("quantity");
+      const rating = formData.get("rating");
+
+     const data = {productBrand,productName, productType,description,salePrice,markedPrice,isAvailable,discountPercentage,totalSold,quantity,rating} 
+     console.log(data)
+      form.style.display = "block";
+
+      fetch('http://localhost:8888/Products/updateProduct/' + updateproductid, {
+        method: 'PUT',
+      //   body: formData
+      // })
+      //   .then(response => {
+      //     // Handle successful response
+      //     window.location.reload() // Reload the table after updating the product
+      //   })
+      //   .catch(error => {
+      //     console.log(error);
+      //   });
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ image1, image2,image3,productBrand,productName, productType,description,salePrice,markedPrice,isAvailable,discountPercentage,totalSold,quantity,rating})
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the response from the backend API
+      console.log(data);
+      // const formContainer = document.getElementById('form-container');
+    // formContainer.style.display = "none";
+    alert("Product updated Successfully")
+    closeUpdateForm()
+    window.location.reload()
+      // Hide the form
+      // formContainer.classList.add('hidden');
+    })
+    .catch(error => console.error(error));
+    }
+    // document.getElementById("viewAllButton").addEventListener("click", viewAllProducts);
+
+
+    function showSearchById() {
+      // alert("id form working")
+      var searchById = document.getElementById("searchById");
+      if (searchById.style.display === "none") {
+        searchById.style.display = "block";
+      } else {
+        searchById.style.display = "none";
+      }
+    }
+
+
+    function searchById() {
+      var productId = document.getElementById("productId").value;
+
+      fetch('http://localhost:8888/Products/getProductById/' + productId)
+        .then(response => response.json())
+        .then(data => {
+          var products = data;
+          var tableHTML = "<table><thead><tr><th>Image</th><th>Product Brand</th><th>Product Name</th><th>Product Type</th><th>Sale Price</th><th>Marked Price</th><th>Discount Percentage</th><th>Actions</th></tr></thead><tbody>";
+          console.log(products.productBrand);
+
+          var product = products;
+          tableHTML += "<tr>";
+          tableHTML += "<td><img src='" + product.image1 + "' alt='Product Image' width='100' height='100'></td>";
+          tableHTML += "<td>" + product.productBrand + "</td>";
+          tableHTML += "<td>" + product.productName + "</td>";
+          tableHTML += "<td>" + product.productType + "</td>";
+          tableHTML += "<td>" + "₹" + product.salePrice + "</td>";
+          tableHTML += "<td>" + "₹" + product.markedPrice + "</td>";
+          tableHTML += "<td>" + product.discountPercentage + "%" + "</td>";
+          tableHTML += "<td class='lastTD'><button type='button' class='delete' onclick='deleteProduct(" + product.productId + ")'>Delete</button> <button type='button' class='update' onclick='updateProduct(" + product.productId + ")'>Update</button><button type='button' class='closesingleTable' onclick='closeSingleTable()'>Close</button></td>";
+          tableHTML += "</tr>";
+
+
+          tableHTML += "</tbody></table>";
+          document.getElementById("productTableContainer").innerHTML = tableHTML;
+          var searchById = document.getElementById("searchById");
+          searchById.style.display = "none";
+        })
+        .catch(error => {
+          console.log(error);
+          console.log("error")
+        });
+    }
+
+
+
+
+    function showSearchByName() {
+      // alert("name form working")
+      var showSearchByName = document.getElementById("showSearchByName");
+      if (showSearchByName.style.display === "none") {
+        showSearchByName.style.display = "block";
+      } else {
+        showSearchByName.style.display = "none";
+      }
+    }
+
+
+
+
+
+
+    function searchByName() {
+      var productName = document.getElementById("productNames").value;
+      console.log(productName)
+      fetch('http://localhost:8888/Products/searchByName/' + productName)
+        .then(response => response.json())
+        .then(data => {
+          var products = data;
+          var tableHTML = "<table><thead><tr><th>Image</th><th>Product Brand</th><th>Product Name</th><th>Product Type</th><th>Sale Price</th><th>Marked Price</th><th>Discount Percentage</th><th>Actions</th></tr></thead><tbody>";
+          console.log(data);
+          for (var i = 0; i < products.length; i++) {
+            var product = products[i];
+            tableHTML += "<tr>";
+            tableHTML += "<td><img src='" + product.image1 + "' alt='Product Image' width='100' height='100'></td>";
+            tableHTML += "<td>" + product.productBrand + "</td>";
+            tableHTML += "<td>" + product.productName + "</td>";
+            tableHTML += "<td>" + product.productType + "</td>";
+            tableHTML += "<td>" + "₹" + product.salePrice + "</td>";
+            tableHTML += "<td>" + "₹" + product.markedPrice + "</td>";
+            tableHTML += "<td>" + product.discountPercentage + "%" + "</td>";
+            tableHTML += "<td class='lastTD'><button type='button' class='delete' onclick='deleteProduct(" + product.productId + ")'>Delete</button> <button type='button' class='update' onclick='updateProduct(" + product.productId + ")'>Update</button><button type='button' class='closesingleTable' onclick='closeSingleTable()'>Close</button></td>";
+            tableHTML += "</tr>";
+          }
+
+          tableHTML += "</tbody></table>";
+          document.getElementById("productTableContainer").innerHTML = tableHTML;
+        })
+        .catch(error => {
+          console.log(error);
+          console.log("error")
+        });
+    }
+
+
+
+    function showSearchByBrand() {
+      // alert("working")
+      var showSearchByBrand = document.getElementById("showSearchByBrand");
+      if (showSearchByBrand.style.display === "none") {
+        showSearchByBrand.style.display = "block";
+      } else {
+        showSearchByBrand.style.display = "none";
+      }
+    }
+
+
+
+    function searchByBrand() {
+      
+      var productBrand = document.getElementById("productBrands").value;
+      console.log(productBrand)
+      fetch('http://localhost:8888/Products/searchByBrand/' + productBrand)
+        .then(response => response.json())
+        .then(data => {
+          var products = data;
+          var tableHTML = "<table><thead><tr><th>Image</th><th>Product Brand</th><th>Product Name</th><th>Product Type</th><th>Sale Price</th><th>Marked Price</th><th>Discount Percentage</th><th>Actions</th></tr></thead><tbody>";
+          console.log(data);
+          for (var i = 0; i < products.length; i++) {
+            var product = products[i];
+            tableHTML += "<tr>";
+            tableHTML += "<td><img src='" + product.image1 + "' alt='Product Image' width='100' height='100'></td>";
+            tableHTML += "<td>" + product.productBrand + "</td>";
+            tableHTML += "<td>" + product.productName + "</td>";
+            tableHTML += "<td>" + product.productType + "</td>";
+            tableHTML += "<td>" + "₹" + product.salePrice + "</td>";
+            tableHTML += "<td>" + "₹" + product.markedPrice + "</td>";
+            tableHTML += "<td>" + product.discountPercentage + "%" + "</td>";
+            tableHTML += "<td class='lastTD'><button type='button' class='delete' onclick='deleteProduct(" + product.productId + ")'>Delete</button> <button type='button' class='update' onclick='updateProduct(" + product.productId + ")'>Update</button><button type='button' class='closesingleTable' onclick='closeSingleTable()'>Close</button></td>";
+            tableHTML += "</tr>";
+          }
+          
+          tableHTML += "</tbody></table>";
+          document.getElementById("productTableContainer").innerHTML = tableHTML;
+        })
+        .catch(error => {
+          console.log(error);
+          console.log("error")
+        });
+    }
+
+
+
+    function showSearchByRating() {
+      // alert("working")
+      var showSearchByRating = document.getElementById("showSearchByRating");
+      if (showSearchByRating.style.display === "none") {
+        showSearchByRating.style.display = "block";
+      } else {
+        showSearchByRating.style.display = "none";
+      }
+    }
+
+
+
+    function searchByRating() {
+      var productRatings = document.getElementById("productRatings").value;
+      console.log(productRatings)
+      fetch('http://localhost:8888/Products/searchByRating/' + productRatings)
+        .then(response => response.json())
+        .then(data => {
+          var products = data;
+          var tableHTML = "<table><thead><tr><th>Image</th><th>Product Brand</th><th>Product Name</th><th>Product Type</th><th>Sale Price</th><th>Marked Price</th><th>Discount Percentage</th><th>Actions</th></tr></thead><tbody>";
+          console.log(data);
+          for (var i = 0; i < products.length; i++) {
+            var product = products[i];
+            tableHTML += "<tr>";
+            tableHTML += "<td><img src='" + product.image1 + "' alt='Product Image' width='100' height='100'></td>";
+            tableHTML += "<td>" + product.productBrand + "</td>";
+            tableHTML += "<td>" + product.productName + "</td>";
+            tableHTML += "<td>" + product.productType + "</td>";
+            tableHTML += "<td>" + "₹" + product.salePrice + "</td>";
+            tableHTML += "<td>" + "₹" + product.markedPrice + "</td>";
+            tableHTML += "<td>" + product.discountPercentage + "%" + "</td>";
+            tableHTML += "<td class='lastTD'><button type='button' class='delete' onclick='deleteProduct(" + product.productId + ")'>Delete</button> <button type='button' class='update' onclick='updateProduct(" + product.productId + ")'>Update</button><button type='button' class='closesingleTable' onclick='closeSingleTable()'>Close</button></td>";
+            tableHTML += "</tr>";
+          }
+
+          tableHTML += "</tbody></table>";
+          document.getElementById("productTableContainer").innerHTML = tableHTML;
+        })
+        .catch(error => {
+          console.log(error);
+          console.log("error")
+        });
+    }
+
+
+
+    function showSearchByavailability() {
+      var showSearchByavailability = document.getElementById("showSearchByavailability");
+      if (showSearchByavailability.style.display === "none") {
+        showSearchByavailability.style.display = "block";
+      } else {
+        showSearchByavailability.style.display = "none";
+      }
+    }
+
+
+
+
+    function searchByavailability() {
+      var productavailabilitys = document.getElementById("productavailabilitys").value;
+      console.log(productavailabilitys)
+      fetch('http://localhost:8888/Products/searchByisAvailable/' + productavailabilitys)
+        .then(response => response.json())
+        .then(data => {
+          var products = data;
+          var tableHTML = "<table><thead><tr><th>Image</th><th>Product Brand</th><th>Product Name</th><th>Product Type</th><th>Sale Price</th><th>Marked Price</th><th>Discount Percentage</th><th>Actions</th></tr></thead><tbody>";
+          console.log(data);
+          for (var i = 0; i < products.length; i++) {
+            var product = products[i];
+            tableHTML += "<tr>";
+            tableHTML += "<td><img src='" + product.image1 + "' alt='Product Image' width='100' height='100'></td>";
+            tableHTML += "<td>" + product.productBrand + "</td>";
+            tableHTML += "<td>" + product.productName + "</td>";
+            tableHTML += "<td>" + product.productType + "</td>";
+            tableHTML += "<td>" + "₹" + product.salePrice + "</td>";
+            tableHTML += "<td>" + "₹" + product.markedPrice + "</td>";
+            tableHTML += "<td>" + product.discountPercentage + "%" + "</td>";
+            tableHTML += "<td class='lastTD'><button type='button' class='delete' onclick='deleteProduct(" + product.productId + ")'>Delete</button> <button type='button' class='update' onclick='updateProduct(" + product.productId + ")'>Update</button><button type='button' class='closesingleTable' onclick='closeSingleTable()'>Close</button></td>";
+            tableHTML += "</tr>";
+          }
+
+          tableHTML += "</tbody></table>";
+          document.getElementById("productTableContainer").innerHTML = tableHTML;
+        })
+        .catch(error => {
+          console.log(error);
+          console.log("error")
+        });
+    }
+
+
+
+
+    function showSearchBytype() {
+      var showSearchBytype = document.getElementById("showSearchBytype");
+      if (showSearchBytype.style.display === "none") {
+        showSearchBytype.style.display = "block";
+      } else {
+        showSearchBytype.style.display = "none";
+      }
+    }
+
+
+
+
+    function searchBytype() {
+     
+      var producttypes = document.getElementById("producttypes").value;
+      console.log(producttypes)
+      fetch('http://localhost:8888/Products/searchByType/' + producttypes)
+        .then(response => response.json())
+        .then(data => {
+          var products = data;
+          var tableHTML = "<table><thead><tr><th>Image</th><th>Product Brand</th><th>Product Name</th><th>Product Type</th><th>Sale Price</th><th>Marked Price</th><th>Discount Percentage</th><th>Actions</th></tr></thead><tbody>";
+          console.log(data);
+          for (var i = 0; i < products.length; i++) {
+            var product = products[i];
+            tableHTML += "<tr>";
+            tableHTML += "<td><img src='" + product.image1 + "' alt='Product Image' width='100' height='100'></td>";
+            tableHTML += "<td>" + product.productBrand + "</td>";
+            tableHTML += "<td>" + product.productName + "</td>";
+            tableHTML += "<td>" + product.productType + "</td>";
+            tableHTML += "<td>" + "₹" + product.salePrice + "</td>";
+            tableHTML += "<td>" + "₹" + product.markedPrice + "</td>";
+            tableHTML += "<td>" + product.discountPercentage + "%" + "</td>";
+            tableHTML += "<td class='lastTD'><button type='button' class='delete' onclick='deleteProduct(" + product.productId + ")'>Delete</button> <button type='button' class='update' onclick='updateProduct(" + product.productId + ")'>Update</button><button type='button' class='closesingleTable' onclick='closeSingleTable()'>Close</button></td>";
+            tableHTML += "</tr>";
+          }
+
+          tableHTML += "</tbody></table>";
+          document.getElementById("productTableContainer").innerHTML = tableHTML;
+        })
+        .catch(error => {
+          console.log(error);
+          console.log("error")
+        });
+    }
+
+
+    const sideMenu = document.querySelector("aside");
+
+    function closeUpdateForm() {
+      var forms = document.getElementById("form-containerupdate");
+      forms.style.display = "none";
+    }
+    function closeAddForm() {
+      var forms = document.getElementById("form-container");
+      forms.style.display = "none";
+    }
+
+
+    function AddForm() {
+      var forms = document.getElementById("form-container");
+      forms.style.display = "block";
+    }
+
+    function AddingProduct() {
+      const form = document.getElementById("AddproductForm");
+      const formData = new FormData(form);
+      const image1 = formData.get("image1");
+      const image2 = formData.get("image2");
+      const image3 = formData.get("image3");
+      const productBrand = formData.get("productBrand");
+      const productName = formData.get("productName");
+      const productType = formData.get("productType");
+      const description = formData.get("description");
+      const salePrice = formData.get("salePrice");
+      const markedPrice = formData.get("markedPrice");
+      const isAvailable = formData.get("isAvailable");
+      const discountPercentage = formData.get("discountPercentage");
+      const totalSold = formData.get("totalSold");
+      const quantity = formData.get("quantity");
+      const rating = formData.get("rating");
+
+     const data = {productBrand,productName, productType,description,salePrice,markedPrice,isAvailable,discountPercentage,totalSold,quantity,rating} 
+     console.log(data)
+
+        // const data = {}
+        // console.log(formData.get("salePrice"))
+        fetch("http://localhost:8888/Products/addProduct", {
+          method: "POST",
+        headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ image1, image2,image3,productBrand,productName, productType,description,salePrice,markedPrice,isAvailable,discountPercentage,totalSold,quantity,rating})
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the response from the backend API
+      console.log(data);
+      // const formContainer = document.getElementById('form-container');
+    // formContainer.style.display = "none";
+    alert("Product added Successfully")
+    closeAddForm()
+    window.location.reload()
+      // Hide the form
+      // formContainer.classList.add('hidden');
+    })
+    .catch(error => console.error(error));
+    }
+
+
+function closeSingleForm(){
+  var forms = document.querySelector(".singleform");
+      forms.style.display = "none";
+
+  var forms = document.querySelector("#showSearchByName");
+      forms.style.display = "none";
+
+  var forms = document.querySelector("#showSearchByBrand");
+      forms.style.display = "none";
+
+  var forms = document.querySelector("#showSearchByRating");
+      forms.style.display = "none";
+
+  var forms = document.querySelector("#showSearchBytype");
+      forms.style.display = "none";
+
+  var forms = document.querySelector("#showSearchByavailability");
+      forms.style.display = "none";
+}
+
+
+
+function redirectToHome(){
+  window.location.href = "admin.html"
+}
+</script>
+
+</body>
+</html>
